@@ -43,7 +43,7 @@
             <ul>
               <% @book_view_model.reservations.each do |reservation| %>
                 <li class="mb-2">
-                  <%= reservation.user.full_name %>
+                  <%= reservation.user_name %>
                 </li>
               <% end %>
             </ul>
