@@ -9,6 +9,7 @@ module BorrowBook
       end
 
       def self.reserve_book(book)
+        raise 'You should pass a DTO' if book.class != BookDTO
         # Reservation logic
       end
     end

@@ -5,7 +5,9 @@ class RentalsController < ApplicationController
     @book = BorrowBook::Public::Api.borrow_book(params[:book_id], current_user)
     flash[:notice] = "You've just borrowed the book #{@book.title}"
 
-    @book.update(title: 'New title') # NOOOOO!!! You shouldn't be able to to this here!
+    # @book.update(title: 'New title') # NOOOOO!!! You shouldn't be able to to this here!
+
+    BorrowBook::Public::Api.reserve_book(@book)
 
     # @books = Search::ListBorrowedBooks.call(current_user)
     @books = Search::Public::Api.list_borrowed_books(current_user)
