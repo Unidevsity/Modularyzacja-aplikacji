@@ -7,6 +7,10 @@ module BorrowBook
         other_params = 'Another param needed to borrow this book'
         BorrowBook::BorrowBook.call(book_id, user, other_param)
       end
+
+      def self.reserve_book(book)
+        # Reservation logic
+      end
     end
   end
 end
