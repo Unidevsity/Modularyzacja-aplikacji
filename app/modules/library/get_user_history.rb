@@ -1,5 +1,5 @@
 module User
-  class GetHistory
+  class GetUserHistory
 
   end
 end
