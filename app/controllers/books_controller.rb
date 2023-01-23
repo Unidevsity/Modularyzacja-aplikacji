@@ -35,17 +35,17 @@ class BooksController < ApplicationController
         user_id: reservation.user_id,
         user_name: User.find(reservation.user_id).full_name,
       }
-
-      read_model.borrow_histories = BorrowHistory.where(book_id: params[:id]).map do |borrow_history|
-        {
-          user_id: borrow_history.user_id,
-          user_name: User.find(borrow_history.user_id).full_name,
-          borrowed_at: borrow_history.borrowed_at.to_s,
-          returned_at: borrow_history.returned_at.to_s
-        }
-      end
-
-      read_model.save
     end
+
+    read_model.borrow_histories = BorrowHistory.where(book_id: params[:id]).map do |borrow_history|
+      {
+        user_id: borrow_history.user_id,
+        user_name: User.find(borrow_history.user_id).full_name,
+        borrowed_at: borrow_history.borrowed_at.to_s,
+        returned_at: borrow_history.returned_at.to_s
+      }
+    end
+
+    read_model.save
   end
 end
