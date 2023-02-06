@@ -3,9 +3,9 @@ class BooksController < ApplicationController
   after_action :rebuild_read_model, only: [:borrow, :return, :create]
 
   def index
-    # Rails.cache.fetch("all_books", expires_in: 2.hours) do
-    #   @books = Book.all
-    # end
+    Rails.cache.fetch("all_books", expires_in: 2.hours) do
+      @books = Book.all
+    end
   end
 
   def show
